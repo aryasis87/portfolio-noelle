@@ -10,10 +10,10 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const bricolage = Bricolage_Grotesque({ variable: "--font-bricolage", subsets: ["latin"], weight: ["300", "400", "600", "700"] });
 
-const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Noelle","jobTitle":"UI/UX Designer","url":"https://portfolio-noelle.vercel.app","inLanguage":"en"}};
+const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Noelle","jobTitle":"UI/UX Designer","url":"https://noelle.pintuweb.com","inLanguage":"en"}};
 
 export const metadata = {
-  metadataBase: new URL("https://portfolio-noelle.vercel.app"),
+  metadataBase: new URL("https://noelle.pintuweb.com"),
   title: "Noelle — UI/UX Designer",
   description: "Portfolio of Noelle, a UI/UX designer crafting intuitive, human-centered digital experiences.",
   applicationName: "Noelle",
@@ -21,11 +21,11 @@ export const metadata = {
   authors: [{ name: "Noelle" }],
   creator: "Noelle",
   publisher: "Noelle",
-  alternates: { canonical: "https://portfolio-noelle.vercel.app" },
+  alternates: { canonical: "https://noelle.pintuweb.com" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://portfolio-noelle.vercel.app",
+    url: "https://noelle.pintuweb.com",
     siteName: "Noelle",
     title: "Noelle — UI/UX Designer",
     description: "Portfolio of Noelle, a UI/UX designer crafting intuitive, human-centered digital experiences.",
