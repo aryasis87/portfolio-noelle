@@ -13,8 +13,8 @@ export default function ContactCTA() {
 
         {/* Tombol Aksi */}
         <a
-          href="#contact"
-          aria-label="Hire me now and navigate to contact section"
+          href="/contact"
+          aria-label="Hire me now and navigate to contact page"
           className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-sm font-medium transition-colors hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
         >
           Hire Me Now

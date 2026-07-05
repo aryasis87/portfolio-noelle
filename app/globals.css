@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+}
+
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,3 +32,21 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ---- Dark theme (class-based, neutral remap; brand accents kept) ---- */
+.dark { color-scheme: dark; }
+.dark .bg-white { background-color: #101015 !important; }
+.dark .bg-gray-50 { background-color: #0c0c11 !important; }
+.dark .bg-gray-100 { background-color: #1b1b22 !important; }
+.dark .bg-gray-200 { background-color: #23232c !important; }
+.dark .text-black { color: #f3f3f5 !important; }
+.dark .text-gray-900 { color: #f3f3f5 !important; }
+.dark .text-gray-800 { color: #e6e6ea !important; }
+.dark .text-gray-700 { color: #d3d3db !important; }
+.dark .text-gray-600 { color: #b3b3be !important; }
+.dark .text-gray-500 { color: #9a9aa6 !important; }
+.dark .text-gray-400 { color: #80808d !important; }
+.dark .border-gray-100 { border-color: rgba(255,255,255,0.08) !important; }
+.dark .border-gray-200 { border-color: rgba(255,255,255,0.12) !important; }
+.dark .border-gray-300 { border-color: rgba(255,255,255,0.16) !important; }
+.dark .border-black { border-color: rgba(255,255,255,0.30) !important; }

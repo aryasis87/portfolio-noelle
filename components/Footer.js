@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { nav } from '@/lib/data';
 
 export default function Footer() {
   return (
@@ -68,18 +70,11 @@ export default function Footer() {
         </div>
         <nav className="order-1 md:order-2" aria-label="Footer navigation">
           <ul className="flex gap-6 text-sm text-gray-400">
-            <li>
-              <a href="#" className="hover:text-white focus:outline-none focus:text-white">Templates</a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white focus:outline-none focus:text-white">Tools</a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white focus:outline-none focus:text-white">Features</a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white focus:outline-none focus:text-white">About Us</a>
-            </li>
+            {nav.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-white focus:text-white focus:outline-none">{l.label}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
