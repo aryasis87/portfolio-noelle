@@ -17,16 +17,16 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex gap-4 mt-4 text-gray-400" aria-label="Social media links">
-            <a href="#" aria-label="Facebook" className="hover:text-white focus:outline-none focus:text-white">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white focus:outline-none focus:text-white">
               <Facebook size={18} />
             </a>
-            <a href="#" aria-label="Twitter" className="hover:text-white focus:outline-none focus:text-white">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-white focus:outline-none focus:text-white">
               <Twitter size={18} />
             </a>
-            <a href="#" aria-label="Instagram" className="hover:text-white focus:outline-none focus:text-white">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white focus:outline-none focus:text-white">
               <Instagram size={18} />
             </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-white focus:outline-none focus:text-white">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white focus:outline-none focus:text-white">
               <Linkedin size={18} />
             </a>
           </div>
