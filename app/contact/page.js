@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Check } from 'lucide-react';
+import { Mail, MapPin, Check } from 'lucide-react';
 import { profile } from '@/lib/data';
 
 export default function ContactPage() {
@@ -31,7 +31,6 @@ export default function ContactPage() {
           {/* Info */}
           <div className="space-y-5">
             <Info icon={Mail} label="Email" value={profile.email} href={`mailto:${profile.email}`} />
-            <Info icon={Phone} label="Phone" value={profile.phone} href={`tel:${profile.phone.replace(/\s/g, '')}`} />
             <Info icon={MapPin} label="Location" value={profile.location} />
             <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
               <span className="flex items-center gap-2 text-sm font-semibold text-black">
@@ -39,18 +38,13 @@ export default function ContactPage() {
               </span>
               <p className="mt-2 text-sm text-gray-600">Currently booking projects for the next quarter.</p>
             </div>
-            <div className="flex gap-5 pt-1">
-              {profile.socials.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-gray-500 transition hover:text-black">{s.label}</a>
-              ))}
-            </div>
           </div>
 
           {/* Form */}
           <div>
             {sent ? (
               <div className="rounded-2xl border border-gray-200 bg-gray-50 p-10 text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-black text-white"><Check size={28} /></div>
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-black text-white"><Check size={28} aria-hidden="true" /></div>
                 <h2 className="mt-4 text-2xl font-semibold">Thanks for trying the form!</h2>
                 <p className="mt-1 text-gray-600">This is a portfolio template, {form.name}, so your message wasn&apos;t actually sent. In a live version, it lands straight in the owner&apos;s inbox.</p>
                 <button onClick={() => { setSent(false); setForm({ name: '', email: '', message: '' }); }} className="mt-6 rounded-full border border-black px-6 py-2.5 text-sm font-medium transition hover:bg-black hover:text-white">Back to the form</button>
@@ -75,7 +69,7 @@ export default function ContactPage() {
 function Info({ icon: Icon, label, value, href }) {
   const inner = (
     <div className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-black">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-black"><Icon size={20} /></span>
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-black"><Icon size={20} aria-hidden="true" /></span>
       <div>
         <p className="text-xs uppercase tracking-wide text-gray-500">{label}</p>
         <p className="mt-0.5 font-semibold text-black">{value}</p>

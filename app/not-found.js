@@ -1,20 +1,23 @@
-// app/not-found.js
 import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import PageHeader from '@/components/PageHeader';
+
+export const metadata = { title: 'Page not found' };
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white text-gray-800 font-sans">
-      <div className="text-center max-w-lg px-6 py-12">
-        <h1 className="text-6xl font-extrabold mb-4 text-gray-900">404</h1>
-        <p className="text-lg mb-6 text-gray-600">Oops! The page you&apos;re looking for doesn&apos;t exist.</p>
-        <Link
-          href="/"
-          className="inline-block bg-gray-900 text-white py-3 px-8 rounded-md text-lg font-semibold hover:bg-gray-800 transition duration-300"
-        >
-          Go Back Home
-        </Link>
-      </div>
-    </div>
+    <main className="bg-white">
+      <PageHeader kicker="Error 404" title="This page isn’t here." subtitle="It doesn’t exist, or it has moved. The work and the writing are still one click away." />
+      <section className="px-6 pb-24">
+        <div className="mx-auto flex max-w-7xl flex-wrap gap-3">
+          <Link href="/" className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800">
+            <ArrowLeft size={16} aria-hidden="true" /> Back home
+          </Link>
+          <Link href="/work" className="rounded-full border border-black px-6 py-3 text-sm font-medium text-black transition hover:bg-black hover:text-white">
+            See the work
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
-// This is a custom 404 page for a Next.js application. It provides a user-friendly message and a link to return to the homepage.

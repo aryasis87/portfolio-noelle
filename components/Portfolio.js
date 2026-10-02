@@ -1,16 +1,9 @@
-'use client';
-
 import Image from 'next/image';
-import { useState } from 'react';
+import Link from 'next/link';
+import { projects } from '@/lib/data';
 
-const portfolioItems = [
-  { src: '/images/portfolio6.webp', span: 'col-span-2 row-span-2' },
-  { src: '/images/portfolio2.webp', span: 'col-span-2 row-span-1' },
-  { src: '/images/portfolio3.webp', span: 'col-span-1 row-span-1' },
-  { src: '/images/portfolio4.webp', span: 'col-span-1 row-span-2' },
-  { src: '/images/portfolio5.webp', span: 'col-span-2 row-span-1' },
-  { src: '/images/portfolio1.webp', span: 'col-span-1 row-span-1' },
-];
+// Bento: ukuran ubin per urutan (hanya di layar md ke atas).
+const SPAN = ['md:col-span-2 md:row-span-2', 'md:col-span-2', '', 'md:row-span-2', 'md:col-span-2', ''];
 
 export default function Portfolio() {
   return (
@@ -20,44 +13,22 @@ export default function Portfolio() {
         <span className="inline-block text-xs uppercase tracking-wide bg-gray-200 text-gray-600 px-3 py-1 rounded-full mb-4">
           Portfolio
         </span>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2 text-gray-700">
-          Explore My Creative Solutions
-        </h2>
-        <p className="text-sm text-gray-600">
-          A curated selection showcasing design versatility and impact.
-        </p>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-2 text-black">Six live projects</h2>
+        <p className="text-sm text-gray-600">Each one opens a short case study and a link to the live site.</p>
       </div>
 
-      {/* Grid Portfolio with varied spans */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] max-w-5xl mx-auto">
-        {portfolioItems.map((item, idx) => (
-          <PortfolioItem key={idx} item={item} index={idx} />
+      {/* Grid bento */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[220px] max-w-5xl mx-auto">
+        {projects.map((p, i) => (
+          <Link key={p.slug} href={`/work/${p.slug}`} className={`${SPAN[i] || ''} relative rounded-xl overflow-hidden shadow-lg group bg-gray-200`}>
+            <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4 pt-10 text-left">
+              <span className="block text-base font-semibold text-white">{p.title}</span>
+              <span className="block text-xs text-white/85">{p.category} · {p.year}</span>
+            </span>
+          </Link>
         ))}
       </div>
     </section>
-  );
-}
-
-// Memisah ke komponen terpisah untuk lazy load & placeholder
-function PortfolioItem({ item, index }) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  return (
-    <div className={`${item.span} relative rounded-xl overflow-hidden shadow-lg group`}>
-      {isLoading && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse z-10"></div>
-      )}
-      <Image
-        src={item.src}
-        alt={`Portfolio ${index + 1}`}
-        fill
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        className={`object-cover transition-transform duration-300 ${
-          isLoading ? 'scale-105 blur-md' : 'scale-100 blur-0'
-        }`}
-        loading="lazy"
-        onLoad={() => setIsLoading(false)}
-      />
-    </div>
   );
 }

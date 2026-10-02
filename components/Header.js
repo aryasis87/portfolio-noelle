@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import clsx from 'clsx';
-import Image from 'next/image';
 import { nav } from '@/lib/data';
 
 export default function Header() {
@@ -33,7 +32,7 @@ export default function Header() {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/images/logos1.webp" alt="Noelle" width={32} height={32} className={clsx('h-8 w-8 transition-all duration-700', scrolled ? 'invert' : 'invert-0')} priority />
+          <span aria-hidden="true" className={clsx('flex h-8 w-8 items-center justify-center rounded-full border-2 text-sm font-bold transition-colors duration-500', scrolled ? 'border-white' : 'border-black')}>N</span>
           <span className="text-2xl font-bold tracking-tight">Noelle</span>
         </Link>
 
